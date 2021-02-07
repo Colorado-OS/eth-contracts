@@ -10,10 +10,10 @@ We think Colorado OS would reduce complexity, create new connections, and streng
 
 🌎 1) First, we show how a deFi primed digital parks pass could be issued to a self-sovereign ID using Colorado OS. In the spirit of regen finance, we allocate an optional **portion of the pass fee to an interest bearing DeFi position. This fund generates recurring APY revenue for Colorado Parks.** ⭐ 
 
-🎲 2) Sticking with regen finance, we explore how Colorado OS can mint & issue a **digital players gaming license NFT** that can be used on **non-profit Web3 games of chance to fuel public goods funding in Colorado.** ⭐ 
+🎲 2) Sticking with regen finance, we explore how Colorado OS can mint & issue a **digital players gaming license NFT** that can be used on **non-profit Web3 games of chance and fuel public goods funding in Colorado.** ⭐ 
 
 ### UseCase #1 - Web3 State Parks Pass w/Defi
-First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature can be associated with a person, group, family, or something else like an automobile. 
+First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital parks pass can be associated with a person, group, family, or something else like an automobile. 
 
 When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof* to the contract registry with their CO digital parks pass.  
 
