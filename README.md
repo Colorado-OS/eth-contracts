@@ -43,7 +43,7 @@ Once an SSID is connected into Colorado OS you can begin to interact with other 
 
 ---
 ### Beyond ETHDenver
-Colorado OS license registries could be deployed in support of business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. 
+Colorado OS registries could be deployed in support of business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. Colorado OS can work without Grasshopper using another interface to Web3.  
 
 **We can also see this working nicely as an entry way to secure Web3 tax systems and a public/private GPS network.**
 
@@ -51,7 +51,9 @@ Zero Knowledge Proofs & layer 2 connections are on the road map.
 ___
 ### Other Possible Use Cases For Colorado OS 
 ### Web3 Business Registry (**Larkin's Idea**)
-New FINCEN regulations require verification of on new business creation. Here we show how Grasshopper and Colorado OS can check ID & deploy a business registry contract to Ethereum that mints and distributes a signed digital business license NFT. 
+New FINCEN regulations require verification of IDs for new business creation. Here we show how Grasshopper and Colorado OS can be used to check ID & deploy a business registry contract to Ethereum that mints and distributes a signed digital business license NFT. 
+
+**Currently a work in progress - Contracts and UI are still being developed.** 
 
 ### Web3 Outdoor (Hunting & Fishing) Licensing (TODO)
 
