@@ -65,10 +65,10 @@ New FINCEN regulations require verification of on new business creation. Here we
 
 ---
 ### Disclaimer 
-This is a proof of concept and is not ready for mainnet. There are security and privacy challenges that have not yet been reviewed and addressed. Both Colorado OS and Grasshopper should be audited by cryptographers. 
+This is a proof of concept and is not ready for mainnet. There are security and privacy challenges that have not yet been reviewed and addressed. Both Colorado OS and Grasshopper should be audited.  
 
-The CoinFlip game has been left without a coin withdraw function intentionally. Other features have been left out as well to keep it simple. We _could_ use ChainLink or an other oracle to generate a seed of entropy and fork the CoinFlip contract to seed provably fair tournament trees. We think there  a host of other possibilities in this area as well that go beyond public    
+The CoinFlip game has been left without a coin withdraw function intentionally. Other features have been left out as well to keep it simple. We _could_ use ChainLink or an other oracle to generate a seed of entropy and fork the CoinFlip contract to generate provably fair tournament trees. We believe there are other possibilities in this area as well that go beyond non-profit public games of chance and into the private gaming realm but they have not been addressed for this POC.      
 
 ------
 
-*feature not yet completed 
+*need help integrating & implementing zero knowledge proofs into the registries and/or self sovereign data stores 
