@@ -43,7 +43,7 @@ Once an SSID is connected into Colorado OS you can begin to interact with other 
 
 ---
 ### Beyond ETHDenver
-Colorado OS registries could be deployed in support of business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. Colorado OS can work without Grasshopper using another interface to Web3.  
+Colorado OS Web3 registries could be deployed in support of business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. Colorado OS can work without Grasshopper using another interface to Web3.  
 
 **We can also see this working nicely as an entry way to secure Web3 tax systems and a public/private GPS network.**
 
