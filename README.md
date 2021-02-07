@@ -53,24 +53,29 @@ ___
 ### Web3 Business Registry (**Larkin's Idea**)
 New FINCEN regulations require verification of IDs for new business creation. Here we show how Grasshopper and Colorado OS can be used to check ID & deploy a business registry contract to Ethereum that mints and distributes a signed digital business license NFT. 
 
-**Currently a work in progress - Contracts and UI are still being developed.** 
+**[Currently in development](./contracts/BusinessLicenseRegistry.sol)** 
 
-### Web3 Outdoor (Hunting & Fishing) Licensing (TODO)
+### Web3 Outdoor Licensing
+Hunting, fishing, other. We're thinking about  
 
-### Web3 Professional Licensing (TODO) 
+### Web3 Professional Licensing
+
 
 ### Web3 State Tax System 
 
-### Web3 public GPS network
+### Web3 public GPS network 
+Decentralized satellite network feeds self sovereign GPS beacon maps.   
 
-### ???
+### ...???
 
 ---
 ### Disclaimer 
-This is a proof of concept and is not ready for mainnet. There are security and privacy challenges that have not yet been reviewed and addressed. Both Colorado OS and Grasshopper should be audited.  
+This is a proof of concept and not on mainnet. There are security and privacy challenges that have not yet been reviewed and addressed. Both Colorado OS and Grasshopper should be audited.  
 
 The CoinFlip game has been left without a coin withdraw function intentionally. Other features have been left out as well to keep it simple. We _could_ use ChainLink or an other oracle to generate a seed of entropy and fork the CoinFlip contract to generate provably fair tournament trees. We believe there are other possibilities in this area as well that go beyond non-profit public games of chance and into the private gaming realm but they have not been addressed for this POC.      
 
-------
-
 *need help integrating & implementing zero knowledge proofs into the registries and/or self sovereign data stores 
+
+---
+
+ ❤️🧡💛💚💙💜  thank you ETHDenver  ❤️🧡💛💚💙💜
