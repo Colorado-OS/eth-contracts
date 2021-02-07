@@ -6,7 +6,7 @@ Colorado OS was built to demonstrate how Web3 could be used to establish a digit
 ### ETHDenver ColoradoJam 2021 
 🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3 but we believe a lot more could be done with a system like this.  
 
-We think Colorado OS would reduce complexity, create new connections, and strengthen privacy & security elements of public infrastructure in Colorado.  
+We think Colorado OS would reduce complexity, create new connections, and strengthen privacy & security elements of public infrastructure in Colorado while simultaneously funding itself. 
 
 🌎 1) First, we show how a deFi primed digital parks pass could be issued to a self-sovereign ID using Colorado OS. In the spirit of regen finance, we allocate an optional **portion of the pass fee to an interest bearing DeFi position. This fund generates recurring APY revenue for Colorado Parks.** ⭐ 
 
@@ -15,7 +15,7 @@ We think Colorado OS would reduce complexity, create new connections, and streng
 ### UseCase #1 - Web3 State Parks Pass w/Defi
 First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature can be associated with a person, group, family, or something else like an automobile. 
 
-When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof to the contract registry with their CO digital parks pass.  
+When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof to the contract registry with their CO digital parks pass**.  
 
 [More info can be found on the PARKS-PASS-README here](./docs/PARKS-PASS-README.md). 
 
@@ -62,3 +62,7 @@ Here we show how Grasshopper and Colorado OS can check ID & deploy a business re
 This is a proof of concept and is not ready for mainnet. There are security and privacy challenges that have not yet been reviewed and addressed. Both Colorado OS and Grasshopper should be audited by cryptographers. 
 
 The CoinFlip game has been left without a coin withdraw function intentionally. Other features have been left out as well to keep it simple. We _could_ use ChainLink or an other oracle to generate a seed of entropy and fork the CoinFlip contract to seed provably fair tournament trees. We think there  a host of other possibilities in this area as well that go beyond public    
+
+------
+
+**feature not yet completed 
