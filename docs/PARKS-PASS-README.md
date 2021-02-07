@@ -14,5 +14,7 @@
 
 2) Park will verify that the NFT is valid license holder when a proof is submitted by the park visitor. 
 
+---
 [Link to deployment script](../scripts/eth-denver-poc.py)
+
 [Link to ParksPassRegistry.sol](../contracts/PARKS-PASS-REGISTRY.sol)

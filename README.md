@@ -14,7 +14,7 @@ Colorado OS was built to demonstrate how Web3 could be used to establish a digit
 🎲 2) Sticking with regen finance, we explore how Colorado OS can mint & issue a **digital players gaming license NFT** that can be used to power **non-profit Web3 games of chance and fuel public goods funding in Colorado.** ⭐ 
 
 ---
-### UseCase #1 - Web3 State Parks Pass w/Defi
+### UseCase #1 - Web3 State Parks Pass w/Defi charge
 First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital parks pass can be associated with a person, group, family, or something else like an automobile. 
 
 When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof* to the contract registry with their CO digital parks pass.  
@@ -43,7 +43,7 @@ Once an SSID is connected into Colorado OS you can begin to interact with other 
 
 ---
 ### Beyond ETHDenver
-Colorado OS license registries could be deployed for business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. 
+Colorado OS license registries could be deployed in support of business, professional, fishing, hunting, and other licenses or passes.  Grasshopper aims to be the crypto glue that connects Web3 & self-sovereign ids but it's still in an early & highly experimental phase. 
 
 **We can also see this working nicely as an entry way to secure Web3 tax systems and a public/private GPS network.**
 
