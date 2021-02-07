@@ -3,8 +3,10 @@
 ##### Gaming License   
 In this example Grasshopper is used to issue a digital gaming license token (EIP721 NFT). This token enables licensed players to interact with a defined set of web3 games. 
 
+You can find more information about how the contracts work together on-chain by checking out the [eth-denver-poc brownie deployment script](../scripts/eth-denver-poc.py).
+
 ##### Games - CoinFlip.sol
-For ETHDenver 2021 POC we created a simple Coinflip.sol contract on Etheruem Rinkeby network. The game will only accept bets from players that hold a valid Digital Gaming License. A simple coin flip mechanism will resolve and settle the bet. All profits from the game can be pulled into the Public Infrastructure Pool contract. You can find details on the [CoinFlip.sol game here.](./docs/COINFLIP.md)
+For ETHDenver 2021 POC we created a simple Coinflip.sol contract on Etheruem Rinkeby network. The game will only accept bets from players that hold a valid Digital Gaming License. A simple coin flip mechanism will resolve and settle the bet. All profits from the game can be pulled into the Public Infrastructure Pool contract. You can find details on the [CoinFlip.sol game here.](../docs/COINFLIP.md)
 
 
 --->>
