@@ -4,25 +4,27 @@
 Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure for Colorado. Initially we introduce [Grasshopper Digital Signature Exchange](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS. Grasshopper is not required to use Colorado OS :) 
 
 ### ETHDenver ColoradoJam 2021 
-🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3. We believe you could do more with a system like this too.  
+🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3 but we believe a lot more could be done with a system like this.  
 
 We think Colorado OS would reduce complexity, create new connections, and strengthen privacy & security elements of public infrastructure in Colorado.  
 
 🌎 1) First, we show how a deFi primed digital parks pass could be issued to a self-sovereign ID using Colorado OS. In the spirit of regen finance, we allocate an optional **portion of the pass fee to an interest bearing DeFi position. This fund generates recurring APY revenue for Colorado Parks.** ⭐ 
 
-🎲 2) Sticking with regen finance, we explore how Colorado OS can mint & issue a **digital players gaming license** that can be used on **non-profit Web3 games of chance**. ⭐ 
+🎲 2) Sticking with regen finance, we explore how Colorado OS can mint & issue a **digital players gaming license NFT** that can be used on **non-profit Web3 games of chance to fuel public goods funding in Colorado.** ⭐ 
 
 ### UseCase #1 - Web3 State Parks Pass w/Defi
 First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature can be associated with a person, group, family, or something else like an automobile. 
 
-When a user visits the park, they can mint and write the proof record to a self sovereign data store like Ceramic and/or issue a zkProof to the contract registry with their digital CO state parks pass. 
+When a user visits the park, they can mint & write record of the proof to a self sovereign data store like Ceramic, and/or issue a zkProof to the contract registry with their CO digital parks pass.  
 
 [More info can be found on the PARKS-PASS-README here](./docs/PARKS-PASS-README.md). 
 
-### UseCase #2 - Not-for-profit games of chance $$$ --> Public Infrastructure
-First Colorado OS issues a Web3 digital gaming license NFT to the player. This license all it holder access to a trusted set of Web3 based games. 
+### UseCase #2 - non-profit game of chance feeds $$$ --> Colorado Public Goods 
+First Colorado OS issues a Web3 digital gaming license NFT to the player. This license allows it's holder to access a Web3 [CoinFlip](./contracts/CoinFlip.sol) non-profit game of chance on Rinkeby. 
 
-All gaming profits are pooled into a public goods and infrastructure contract. This could help establish a foundation for quadratic funds distribution though self sovereign IDs.  
+We demo a betting bot simulator that explores how long it might take to generate 10 Million dollars for Colorado Public Goods with the CoinFlip.sol game.
+
+All gaming profits are pooled into a public goods and infrastructure contract. **This could help establish a foundation for quadratic funds distribution though self sovereign IDs.**  
 
 You can find the contracts and deployment scripts on the GamingLicense & GamingToken contracts on the [GAMING README here](./docs/GAMING-LICENSE.md). 
 
