@@ -16,6 +16,10 @@ interface ParksPassToken {
     function mint(address, string calldata) external;
 }
 
+interface CEth {
+    function mint() external payable;
+}    
+
 contract ParksPassRegistry {
 
 /// @notice EIP-20 token name for this token
@@ -43,8 +47,10 @@ bytes32 public constant USER_PASS_TYPEHASH = keccak256("ParksPassUser(address li
 /// @notice Address that will be signing the original license application 
 address public stateSigner;
 
-/// @notice Address for the gamingTokenLicense contract 
+/// @notice Address for the ParksPassToken contract 
 address public parksPassToken; 
+
+address payable cETHContract; 
 
 /// TODO: add more events & subGraphs 
 /// @notice Parks Pass Application Signature Validated Successfully 
@@ -54,9 +60,10 @@ event Application(address signatory, bool approved);
    * @param _signer - public key matching the private key that wil be signing original application sig 
    * @param _parksPassToken - contract that will issue gaming license NFTs 
    **/
-constructor(address _signer, address _parksPassToken) public {
+constructor(address _signer, address _parksPassToken, address payable _cETHContract) public {
     stateSigner = _signer;
     parksPassToken = _parksPassToken;
+    cETHContract = _cETHContract;
 } 
 
 /**
@@ -85,7 +92,7 @@ function parksPassFromState(address licensee, uint expiry, uint8 v, bytes32 r, b
     * @param r Half of the ECDSA signature pair
     * @param s Half of the ECDSA signature pair
     */
-function parksPassFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) public {
+function parksPassFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) public payable {
     bytes32 domainSeparator = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), address(this)));
     bytes32 structHash = keccak256(abi.encode(USER_PASS_TYPEHASH, licensee));
     bytes32 digest = keccak256(abi.encodePacked("\x19\x01", domainSeparator, structHash));
@@ -94,6 +101,7 @@ function parksPassFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) pu
     require(getStateLicense(licensee), "ParksPassRegistry::parksPassFromPlayer: State has not approved this address"); 
     _setPlayerLicense(licensee, true);
     _mintGamingLicense(licensee, "https://colorado-OS/gaming/asdfasdf");
+    require(supplyEthToCompound(cETHContract) == true, "ParksPassRegistry::parksPassFromPlayer: failed to open defi position on Compound");
 }
 
 /**
@@ -129,6 +137,13 @@ function _setStateLicense(address licensee, bool _state, uint256 _expiry) privat
 function _setPlayerLicense(address licensee, bool _player) private {
         license[licensee].player = _player;
 }
+
+/// @notice opens deFi position with a portion of parks pass fee on pass creation 
+function supplyEthToCompound(address payable _cEtherContract) public payable returns (bool){
+            CEth(cETHContract).mint.value(msg.value).gas(250000)();
+            // CEth(cETHContract).mint{value:msg.value, gas:250000}("");
+            return true;
+}     
 
 
 }

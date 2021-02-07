@@ -8,8 +8,8 @@ import sys
 # for individual functions (after initial deploy) - run('eth-denver-poc', 'placeWager') 
 
 maxBetEth = .1
-stateSigningAddress = '0xA1df472Fc3d9f9E5F54137D2878A3fA8adB63351'
-compoundCETHContract = '0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5' 
+stateSigningAddress = '0x8e9d312F6E0B3F511bb435AC289F2Fd6cf1F9C81' # from rinkeby mnemonic, 'evidence fury...'
+compoundCETHContract = '0xd6801a1dffcd0a410336ef88def4320d6df1883e' # rinkeby compound contract | https://compound.finance/docs
 
 def main():
     '''
