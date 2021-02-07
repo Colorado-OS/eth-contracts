@@ -7,7 +7,7 @@ Colorado OS was built to demonstrate how Web3 could be used to establish a digit
 ### 🌈  ETHDenver ColoradoJam 2021  🌈
 🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3 but we believe a lot more could be done with a system like this.  
 
-💚 We think Colorado OS would reduce complexity, create new connections, and strengthen privacy & security elements of public infrastructure in Colorado while in part simultaneously funding itself. 
+💚 We think Colorado OS would reduce complexity, create new connections, and strengthen privacy & security elements of public infrastructure in Colorado while simultaneously, in part, funding itself. 
 
 🌎 1) First, we show how a deFi primed digital parks pass could be issued to a self-sovereign ID using Colorado OS. In the spirit of regen finance, we allocate an optional **portion of the pass fee to an interest bearing DeFi position. This fund generates recurring APY revenue for Colorado Parks.** ⭐ 
 
