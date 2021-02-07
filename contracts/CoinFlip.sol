@@ -3,9 +3,9 @@
 pragma solidity ^0.6.0;
 
 /** 
- * @title - POC for CoinFlip.sol 
- * @author - Zachary Wolff - WolfDefi.com 
- * @notice - ETHDenver 2021 Public Infrastruture Track 
+ * @title - CoinFlip.sol - ETHDenver 2021 POC   
+ * @author - Zachary Wolff - @WolfDeFi  
+ * @notice - non-profit Web3 game of chance feeds $$-> Public Goods Pool  
  **/
 
 // TODO add safemath.sol 
@@ -107,7 +107,7 @@ function _getBalanceOf(address _player) private returns (uint256){
 } 
 
 /**
-* @notice this is not random
+* @notice this is not random - used for POC purposes, not safe for production! 
 * @dev https://medium.com/better-programming/how-to-generate-truly-random-numbers-in-solidity-and-blockchain-9ced6472dbdf
 */
 function _thisIsNotRandom() private returns(uint){
