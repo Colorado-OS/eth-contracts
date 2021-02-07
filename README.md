@@ -1,7 +1,7 @@
 # Colorado OS - ETHDenver 2021 - ColoradoJAM 
 
 ### What is Colorado OS? 
-Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public network infrastructure. Initially we introduce [Grasshopper Digital Signature Interface](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS but it is not required. 
+Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public network infrastructure. Initially we introduce [Grasshopper Digital Signature Interface](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS but Grasshopper is not required. 
 
 ### ETHDenver ColoradoJam 2021 
 🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3. We think there is room for more though. 
@@ -10,15 +10,19 @@ We think a system like this could reduce complexity, create new connections, and
 
 🌎 1) First, we show how a deFi state parks pass could be issued to a self-sovereign ID with Colorado OS. In the spirit of regen finance, we allocate an optional **portion of the parks pass fee to an interest bearing DeFi position. This position generates recurring APY revenue for Colorado Parks.** ⭐ 
 
-🎲 2) Sticking with regen finance, we explore how Colorado OS can mint and issue a **digital gaming license** for players that can be used on blockchain based **not-for-profit games of chance**. ⭐ 
+🎲 2) Sticking with regen finance, we explore how Colorado OS can mint and issue a **digital gaming license** for players that can be used on Web3 **non-profit games of chance**. ⭐ 
 
 ### UseCase #1 - Web3 State Parks Pass w/Defi
-First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature ID could be for a car, a person, group, or family.    
+First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature can be associated to a person, group, family, or something else, like an automobile. 
+
+When a user visits the park, they can write the proof record to a Ceramic user store and/or issue a zkProof to the contract registry with information from their CO Parks Pass. 
+
+[PARKS-PASS-README.md here](./docs/PARKS-PASS-README.md). 
 
 ### UseCase #2 - Not-for-profit games of chance $$$ --> Public Infrastructure
-First Colorado OS issues a Web3 digital gaming license NFT to the player that unlocks a trusted set of Web3 based games. Next, all gaming profits are pooled into a public goods and infrastructure contract. This could set the foundation for something like quadratic voting distribution through self sovereign IDs.  
+First Colorado OS issues a Web3 digital gaming license NFT to the player that unlocks a trusted set of Web3 based games. Next, all gaming profits are pooled into a public goods and infrastructure contract. This could help establish a foundation for something like quadratic funds distribution through self sovereign IDs.  
 
-You can find the contracts and deployment scripts here on the GamingLicense & Token Contract  [GAMING-README.md here](./docs/GAMING-LICENSE.md). 
+You can find the contracts and deployment scripts here on the GamingLicense & Token Contract  [GAMING README here](./docs/GAMING-LICENSE.md). 
 
 ### How Colorado OS works 
 🦗 Initially, self-sovereign IDs are connected to Colorado OS using [Grasshopper Digital Signature Exchange](https://github.com/Colorado-OS/Grasshopper). Grasshopper is minimalist way to mint digital attestations or cryptographic proofs about an arrangement or exchange. 
