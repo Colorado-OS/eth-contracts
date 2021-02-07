@@ -5,7 +5,7 @@ import sys
 # *** basic usage 
 # brownie run eth-denver-poc.py --gas  
 # or from run the console first ($ brownie console), then run: run('eth-denver-poc')
-# for individual functions (after initial deploy) - run('eth-denver-poc', 'placeWager') 
+# for individual functions (after initial deploy) - run('rinkeby-eth-denver-poc', 'placeWager') 
 
 maxBetEth = .1
 stateSigningAddress = '0x8e9d312F6E0B3F511bb435AC289F2Fd6cf1F9C81' # from rinkeby mnemonic, 'evidence fury...'
@@ -103,15 +103,17 @@ def setMinter(token, registry):
 
 def placeWager():
     '''Place a wager against the coinflip game contract. Note - you must first manually obtain a license (via the UI) or your bet will be rejected'''
-    cf = CoinFlip[0] # reference contract 
+    cf = CoinFlip[2] # reference contract 
     try: 
         # place bet require no params but in order to successfully place a wager msg.sender must have gaming license NFT in wallet  
         # >>> CoinFlip[0].placeBet
         # <ContractTx payable 'placeBet()'>
-        bet_result = cf.placeBet({'from': accounts[1], 'value': 100000000000000000})
+        bettor = '0x211ab65b1638ed6B820867035F82D0Ea180DdD59'
+        bet_result = cf.placeBet({'from': bettor, 'value': 100000000000000000})
         print(f'Bet Result: {bet_result.events}')
-    except error as e:
-        print(f'There was an error placing a bet: {e}')
+    except:
+        e = sys.exc_info()[0]
+        print(f'Error on placing a wager: {e}') 
     
 
 
