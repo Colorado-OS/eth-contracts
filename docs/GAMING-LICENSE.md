@@ -1,7 +1,7 @@
 ## Colorado OS - Gaming License Registry, Token, & CoinFlip Contracts
 
 #### Digital Gaming Passport    
-In this example Grasshopper is used to issue a digital gaming license token (EIP721 NFT). This token enables licensed players to interact with a defined set of non-profit web3 games. 
+In this example Grasshopper is used to issue a digital gaming license token (EIP721 NFT). This token enables licensed players to interact with a defined set of non-profit web3 games. We believe a system like this would nicely pave the way for private industry games of chance as well. One notable feature is movement of KYC burden away from game provider on to the License Minter. 
 
 You can find more information about how the contracts are deployed & work together on-chain by checking out the [eth-denver-poc.py brownie deployment script](../scripts/eth-denver-poc.py).
 
