@@ -15,7 +15,7 @@ We think Colorado OS would reduce complexity, create new connections, and streng
 ### UseCase #1 - Web3 State Parks Pass w/Defi
 First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital signature can be associated with a person, group, family, or something else like an automobile. 
 
-When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof to the contract registry with their CO digital parks pass**.  
+When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof* to the contract registry with their CO digital parks pass.  
 
 [More info can be found on the PARKS-PASS-README here](./docs/PARKS-PASS-README.md). 
 
@@ -65,4 +65,4 @@ The CoinFlip game has been left without a coin withdraw function intentionally. 
 
 ------
 
-**feature not yet completed 
+*feature not yet completed 

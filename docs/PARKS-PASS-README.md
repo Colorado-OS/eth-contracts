@@ -1,6 +1,6 @@
 # Colorado OS - Parks Pass Registry Contracts
 
-##### Initialize the parks pass with Grasshopper 
+#### Initialize the parks pass with Grasshopper 
 
 🍃 1) Applicant initializes parks pass application by sending a transaction to parks pass minter address.  Optional fee/donation can be included for CO parks regen deFi fund. 
 
@@ -14,3 +14,5 @@
 
 2) Park will verify that the NFT is valid license holder when a proof is submitted by the park visitor. 
 
+[Link to deployment script](../scripts/eth-denver-poc.py)
+[Link to ParksPassRegistry.sol](../contracts/PARKS-PASS-REGISTRY.sol)
