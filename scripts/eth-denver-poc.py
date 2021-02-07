@@ -1,5 +1,5 @@
 
-from brownie import accounts, web3, Wei, GamingLicenseToken, GamingLicenseRegistry, CoinFlip
+from brownie import accounts, web3, Wei, ParksPassRegistry, ParksPassToken, GamingLicenseToken, GamingLicenseRegistry, CoinFlip
 
 import sys 
 # *** basic usage 
@@ -11,15 +11,38 @@ maxBetEth = .1
 stateSigningAddress = '0xA1df472Fc3d9f9E5F54137D2878A3fA8adB63351' 
 
 def main():
-    '''Deploy the base contracts, GamingLicenseToken.sol, GamingLicenseRegistry.sol, CoinFlip.sol'''
+    '''
+    Deploy the base contracts:
+    -- use case #1 | ParksPassRegistry.sol, ParksPassToken.sol 
+    -- use case #2 | GamingLicenseToken.sol, GamingLicenseRegistry.sol, CoinFlip.sol
+    '''
     # print out some relevant info about our testing env 
     loginfo()
-
+    
+    # use case #1 State Parks Pass with DeFi charge 
+     # 1) deploy the Gaming License Token contract 
+    try:
+        # <ContractConstructor 'ParksPassToken.constructor(string name, string symbol, string baseURI)'>
+        ppt = ParksPassToken.deploy("Park Pass Token", "PPT", "http://something.com/", {'from': accounts[0]})
+    except:
+        e = sys.exc_info()[0]
+        print(f'Error on Parks Pass Token contract deploy {e}' )
+        sys.exit(1)
+    
+    # 2) deploy Gaming License Registry Contract
+    try:
+        # <ContractConstructor 'ParksPassRegistry.constructor(address _signer, address _parksPassToken)'>
+        ppr = ParksPassRegistry.deploy(stateSigningAddress, ppt.address, {'from': accounts[0]})
+    except:
+        e = sys.exc_info()[0]
+        print(f'Error on deploying Parks Pass Registry contract deploy {e}' )
+        sys.exit(1)
+ 
+    # use case #2 Issue player gaming license for non-profit coinFlip game to feed Co public goods 
     # 1) deploy the Gaming License Token contract 
     try:
         # <ContractConstructor 'GamingLicenseToken.constructor(string name, string symbol, string baseURI)'> 
-        glt = GamingLicenseToken.deploy("Gaming License Registry", "GLR", "http://something.com/", {'from': accounts[0]})
-        # print(f'Gaming License Token address {glt.address}')
+        glt = GamingLicenseToken.deploy("Gaming License Token", "GLR", "http://something.com/", {'from': accounts[0]})
     except:
         e = sys.exc_info()[0]
         print(f'Error on Gaming License Token contract deploy {e}' )
@@ -28,9 +51,7 @@ def main():
     # 2) deploy Gaming License Registry Contract
     try:
         # <ContractConstructor 'GamingLicenseRegistry.constructor(address _signer, address _gamingToken)'> 
-        # glr = GamingLicenseRegistry.deploy('0xA1df472Fc3d9f9E5F54137D2878A3fA8adB63351', '0xA46A74e16fAED1527AB16d9ED3231Fc989843594', {'from': accounts[0]})
         glr = GamingLicenseRegistry.deploy(stateSigningAddress, glt.address, {'from': accounts[0]})
-        # print(f'Gaming License Registry address {glr.address}')
     except:
         e = sys.exc_info()[0]
         print(f'Error on deploying Gaming License Registry contract deploy {e}' )
@@ -46,12 +67,13 @@ def main():
         print(f'Error on deploying Coin Flip contract deploy {e}' )
         sys.exit(1)
     
-    base_setup_config(glr, glt, cf)
+    base_setup_config(glr, glt, ppr, ppt)
 
 
-def base_setup_config(glr, glt, cf):
+def base_setup_config(glr, glt, ppr, ppt):
     '''run base config/setup transactions to set things up'''
     setMinter(glt, glr)
+    setMinter(ppt, ppr)
 
 def loginfo():
     # accounts being used 
@@ -64,15 +86,15 @@ def loginfo():
     print("\n")    
     
 
-def setMinter(glt, glr):
-    '''GamingLicenseToken needs the minter role set to the GamingLicenseRegistry contract so that it can mint licenses/tokens'''
+def setMinter(token, registry):
+    '''Token (license & pass contracts) need the minter role set to the registry contract so that registry can mint licenses/pass NFT tokens'''
     # >>> web3.keccak(text="MINTER_ROLE")
     # HexBytes('0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6')
     minter = '0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6'
     try:
-        # >>> GamingLicenseToken[0].grantRole
+        # >>> GamingLicenseToken[0].grantRole | ParksPassToken[0].grantRole
         # <ContractTx 'grantRole(bytes32 role, address account)'>
-        glt.grantRole(minter, glr.address, {'from': accounts[0]})
+        token.grantRole(minter, registry.address, {'from': accounts[0]})
     except:
         e = sys.exc_info()[0]
         print(f'Error on setting minter role {e}' )
