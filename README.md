@@ -1,7 +1,7 @@
 # Colorado OS - ETHDenver 2021 - ColoradoJAM 
 
 ### What is Colorado OS? 
-Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure Web3 public infrastructure for Colorado. Initially we introduce [Grasshopper Digital Signature Exchange](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS. Grasshopper is not required to use Colorado OS :) 
+Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure for Colorado. Initially we introduce [Grasshopper Digital Signature Exchange](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS. Grasshopper is not required to use Colorado OS :) 
 
 ### ETHDenver ColoradoJam 2021 
 🦄 We envision Colorado OS starting as an series of decentralized license registries on Web3. We believe you could do more with a system like this too.  
