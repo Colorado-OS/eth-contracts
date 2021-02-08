@@ -18,6 +18,7 @@ interface ParksPassToken {
 
 interface CEth {
     function mint() external payable;
+    function redeemUnderlying(uint redeemAmount) external returns (uint);
 }    
 
 contract ParksPassRegistry {
@@ -50,7 +51,16 @@ address public stateSigner;
 /// @notice Address for the ParksPassToken contract 
 address public parksPassToken; 
 
-address payable cETHContract; 
+/// @notice admin address used to manage defi positions 
+address public multiSig;
+
+address payable cETHContract;
+
+// used restrict activities to a single address 
+modifier onlyMultiSig {
+    require(msg.sender == multiSig, "ParksPassRegistry :: insuffiecent permissions");
+    _;
+}
 
 /// TODO: add more events & subGraphs 
 /// @notice Parks Pass Application Signature Validated Successfully 
@@ -60,10 +70,11 @@ event Application(address signatory, bool approved);
    * @param _signer - public key matching the private key that wil be signing original application sig 
    * @param _parksPassToken - contract that will issue gaming license NFTs 
    **/
-constructor(address _signer, address _parksPassToken, address payable _cETHContract) public {
+constructor(address _signer, address _parksPassToken, address payable _cETHContract, address _multiSig) public {
     stateSigner = _signer;
     parksPassToken = _parksPassToken;
     cETHContract = _cETHContract;
+    multiSig = _multiSig;
 } 
 
 /**
@@ -101,7 +112,7 @@ function parksPassFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) pu
     require(getStateLicense(licensee), "ParksPassRegistry::parksPassFromPlayer: State has not approved this address"); 
     _setPlayerLicense(licensee, true);
     _mintGamingLicense(licensee, "https://colorado-OS/gaming/asdfasdf");
-    require(supplyEthToCompound(cETHContract) == true, "ParksPassRegistry::parksPassFromPlayer: failed to open defi position on Compound");
+    require(supplyEthToCompound() == true, "ParksPassRegistry::parksPassFromPlayer: failed to open defi position on Compound");
 }
 
 /**
@@ -139,11 +150,29 @@ function _setPlayerLicense(address licensee, bool _player) private {
 }
 
 /// @notice opens deFi position with a portion of parks pass fee on pass creation 
-function supplyEthToCompound(address payable _cEtherContract) public payable returns (bool){
+function supplyEthToCompound() public payable returns (bool){
             CEth(cETHContract).mint.value(msg.value).gas(250000)();
-            // CEth(cETHContract).mint{value:msg.value, gas:250000}("");
             return true;
 }     
+
+/// @notice multisig can redeem cETH from Compound returns 0 if successful 
+function redeemcEthFromCompound(uint amount_in_wei) public onlyMultiSig returns (uint){
+            CEth CE = CEth(cETHContract);
+            uint success = CE.redeemUnderlying(amount_in_wei);
+            return success; 
+}     
+
+/// @notice multiSign can WD ETH 
+function withdrawAmount(uint256 amount) public onlyMultiSig {
+         require(amount <= getEthBalance());
+         msg.sender.transfer(amount);
+   
+}
+
+/// @notice  What is the Ethereum Balance of the contract 
+function getEthBalance() public view returns (uint) {
+    address(this).balance;
+}
 
 
 }

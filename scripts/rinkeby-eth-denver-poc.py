@@ -10,6 +10,7 @@ import sys
 maxBetEth = .1
 stateSigningAddress = '0x8e9d312F6E0B3F511bb435AC289F2Fd6cf1F9C81' # from rinkeby mnemonic, 'evidence fury...'
 compoundCETHContract = '0xd6801a1dffcd0a410336ef88def4320d6df1883e' # rinkeby compound contract | https://compound.finance/docs
+multiSig = '0x8e9d312F6E0B3F511bb435AC289F2Fd6cf1F9C81';
 
 def main():
     '''
@@ -33,7 +34,7 @@ def main():
     # 2) deploy Gaming License Registry Contract
     try:
         # <ContractConstructor 'ParksPassRegistry.constructor(address _signer, address _parksPassToken, address _cETHContract)'>
-        ppr = ParksPassRegistry.deploy(stateSigningAddress, ppt.address, compoundCETHContract, {'from': accounts[0]})
+        ppr = ParksPassRegistry.deploy(stateSigningAddress, ppt.address, compoundCETHContract, multiSig, {'from': accounts[0]})
     except:
         e = sys.exc_info()[0]
         print(f'Error on deploying Parks Pass Registry contract deploy {e}' )
