@@ -78,4 +78,4 @@ The CoinFlip game has been left without a coin withdraw function intentionally. 
 
 ---
 
- ❤️🧡💛💚💙💜  thank you ETHDenver  ❤️🧡💛💚💙💜
+ ❤️🧡💛💚💙💜  ETHDenver 2021 - ColoradoJam  ❤️🧡💛💚💙💜
