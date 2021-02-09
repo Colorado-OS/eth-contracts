@@ -93,7 +93,7 @@ function licenseFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) publ
     require(signatory == licensee, "GLR::licenseFromPlayer: invalid signature");
     require(getStateLicense(licensee), "GLR::licenseFromPlayer: State has not approved this address"); 
     _setPlayerLicense(licensee, true);
-    _mintGamingLicense(licensee, "https://colorado-OS/gaming/asdfasdf");
+    _mintGamingLicense(licensee, "gaming/v/1"); 
 }
 
 /**

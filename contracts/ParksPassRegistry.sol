@@ -97,28 +97,33 @@ function parksPassFromState(address licensee, uint expiry, uint8 v, bytes32 r, b
 }
 
 /**
-    * @notice Accepts signed gaming license application 
+    * @notice Accepts signed parks pass application 
     * @param licensee The address to issue license to
     * @param v The recovery byte of the signature
     * @param r Half of the ECDSA signature pair
     * @param s Half of the ECDSA signature pair
+    * @dev currently will issue duplicate NFTs, should probably add check to prevent that
     */
-function parksPassFromPlayer(address licensee, uint8 v, bytes32 r, bytes32 s) public payable {
+function parksPassFromApplicant(address licensee, uint8 v, bytes32 r, bytes32 s) public payable {
     bytes32 domainSeparator = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), address(this)));
     bytes32 structHash = keccak256(abi.encode(USER_PASS_TYPEHASH, licensee));
     bytes32 digest = keccak256(abi.encodePacked("\x19\x01", domainSeparator, structHash));
     address signatory = ecrecover(digest, v, r, s);
-    require(signatory == licensee, "ParksPassRegistry::parksPassFromPlayer: invalid signature");
-    require(getStateLicense(licensee), "ParksPassRegistry::parksPassFromPlayer: State has not approved this address"); 
-    _setPlayerLicense(licensee, true);
-    _mintGamingLicense(licensee, "https://colorado-OS/gaming/asdfasdf");
-    require(supplyEthToCompound() == true, "ParksPassRegistry::parksPassFromPlayer: failed to open defi position on Compound");
+    require(signatory == licensee, "ParksPassRegistry::parksPassFromApplicant: invalid signature");
+    require(getStateLicense(licensee), "ParksPassRegistry::parksPassFromApplicant: State has not approved this address"); 
+    _setApplicantLicense(licensee, true);
+    if (msg.value > 0) {  // defi donor! 
+        _mintParksPass(licensee, "parks-pass/v/2"); 
+    } else { // no donation :(
+        _mintParksPass(licensee, "parks-pass/v/1"); 
+    }
+    require(supplyEthToCompound() == true, "ParksPassRegistry::parksPassFromApplicant: failed to open defi position on Compound");
 }
 
 /**
 * @notice execute call gaming token license contract to issue NFT  
 */
-function _mintGamingLicense(address _licensee, string memory _tokenURI) private {
+function _mintParksPass(address _licensee, string memory _tokenURI) private {
         ParksPassToken PPT = ParksPassToken(parksPassToken);
         PPT.mint(_licensee, _tokenURI);
 } 
@@ -129,7 +134,7 @@ function getStateLicense(address licensee) public view returns(bool){
 }
 
 /// @notice get player status of license for a given address 
-function getPlayerLicense(address licensee) public view returns(bool){
+function getApplicantLicense(address licensee) public view returns(bool){
         return license[licensee].player;
 }
 
@@ -145,7 +150,7 @@ function _setStateLicense(address licensee, bool _state, uint256 _expiry) privat
 }
 
 /// @notice set player license status for a given address 
-function _setPlayerLicense(address licensee, bool _player) private {
+function _setApplicantLicense(address licensee, bool _player) private {
         license[licensee].player = _player;
 }
 

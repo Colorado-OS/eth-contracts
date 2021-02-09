@@ -29,11 +29,12 @@ uint256 public maxBet;
 /// @notice map gaming license to balance
 mapping(address => uint) public game_balances;
 
-/// @dev debug events  
-event BalanceOf(uint256 balanceOfNFTs); // debug 
-event OddOrEven(string even); // debug 
-event NotRandomNumber(uint notRandomNumber); //debug
+/// @notice Win/loss events 
 event Winner(string congratulations);
+event Loser(string sorry);
+
+/// @dev debug events  
+event BalanceOf(uint256 balanceOfNFTs);  
 
 /** 
 * @param _gamingTokenContract - Gaming License Token Contract Address 
@@ -55,12 +56,13 @@ function placeBet() public payable {
     // Reject empty bets 
     require(msg.value > 0, "CF :: Wager is required to play");
     
-    // reject losing bet
-    require(_isWinner() == true, "CF :: Sorry! you lost");
-    
-    // reward winner 
-    emit Winner("Nice bet! You won.");
-    
+    // settle the bet 
+    if (_isWinner() == true) {
+        emit Winner("CF :: Nice bet! You won.");
+    } else {
+        emit Loser("CF :: Sorry! you lost");
+    }  
+   
 } 
 
 /**
@@ -73,6 +75,9 @@ function isLicensed(address _player) private returns (bool) {
     }
 }
 
+/**
+* @notice gets a sudo random number and checks if it's even (winner) or odd (loser) 
+*/
 function _isWinner() internal returns (bool) {
     uint bad_random = _thisIsNotRandom();
     uint value = bad_random / 2;
@@ -86,9 +91,10 @@ function _isWinner() internal returns (bool) {
         return false; // odd lose  
     }
 }
+
 // Coming soon - placholder for now 
 function _calculatePayout() internal returns (uint256) {
-    // TODO - remove house edge of x% and return bet minus house edge 
+    // TODO - deduct a house edge of x% and return bet minus house edge 
     return msg.value;
 }
 

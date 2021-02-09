@@ -25,7 +25,7 @@ def main():
      # 1) deploy the Gaming License Token contract 
     try:
         # <ContractConstructor 'ParksPassToken.constructor(string name, string symbol, string baseURI)'>
-        ppt = ParksPassToken.deploy("Park Pass Token", "PPT", "http://something.com/", {'from': accounts[0]})
+        ppt = ParksPassToken.deploy("Park Pass Token", "PPT", "https://colorado-os.herokuapp.com/", {'from': accounts[0]})
     except:
         e = sys.exc_info()[0]
         print(f'Error on Parks Pass Token contract deploy {e}' )
@@ -44,7 +44,7 @@ def main():
     # 1) deploy the Gaming License Token contract 
     try:
         # <ContractConstructor 'GamingLicenseToken.constructor(string name, string symbol, string baseURI)'> 
-        glt = GamingLicenseToken.deploy("Gaming License Token", "GLR", "http://something.com/", {'from': accounts[0]})
+        glt = GamingLicenseToken.deploy("Gaming License Token", "GLR", "https://colorado-os.herokuapp.com/", {'from': accounts[0]})
     except:
         e = sys.exc_info()[0]
         print(f'Error on Gaming License Token contract deploy {e}' )
