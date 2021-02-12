@@ -1,6 +1,6 @@
 # Colorado OS - ETHDenver 2021 - ColoradoJAM 
 
-### What is Colorado OS? 
+### Colorado OS - DeFi-Charged Backbone for Licensing
 Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure in Colorado. 
 
 Demo site can be found here [colorado-os.github.io](https://colorado-os.github.io) and a more high level project write up can be found [here](./docs/TODO.pdf). 
@@ -52,7 +52,7 @@ Colorado OS Web3 registries could be deployed in support of business, profession
 Zero Knowledge Proofs & layer 2 connections are on the road map. 
 ___
 ### Other Possible Use Cases For Colorado OS 
-### Web3 Business Registry (**Larkin's Idea**)
+### Web3 Business Registry (**L reynolds Idea**)
 New FINCEN regulations require verification of IDs for new business creation. Here we show how Grasshopper and Colorado OS can be used to check ID & deploy a business registry contract to Ethereum that mints and distributes a signed digital business license NFT. 
 
 **[Currently in development](./contracts/BusinessLicenseRegistry.sol)** 
