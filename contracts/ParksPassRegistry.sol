@@ -14,6 +14,7 @@ pragma solidity >=0.6.0;
 */
 interface ParksPassToken {
     function mint(address, string calldata) external;
+    function balanceOf(address) external returns (uint256);
 }
 
 interface CEth {
@@ -65,6 +66,8 @@ modifier onlyMultiSig {
 /// TODO: add more events & subGraphs 
 /// @notice Parks Pass Application Signature Validated Successfully 
 event Application(address signatory, bool approved);
+event EntryAllowed(string);
+event EntryDenied(string);
 
 /**
    * @param _signer - public key matching the private key that wil be signing original application sig 
@@ -119,6 +122,50 @@ function parksPassFromApplicant(address licensee, uint8 v, bytes32 r, bytes32 s)
     }
     require(supplyEthToCompound() == true, "ParksPassRegistry::parksPassFromApplicant: failed to open defi position on Compound");
 }
+
+/**
+    * @notice Accepts signed message and confirms address holds a parks pass 
+    * @param licensee The address to issue license to
+    * @param v The recovery byte of the signature
+    * @param r Half of the ECDSA signature pair
+    * @param s Half of the ECDSA signature pair
+    */
+function confirmPassHolder(address licensee, uint8 v, bytes32 r, bytes32 s) public payable {
+    bytes32 domainSeparator = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), address(this)));
+    bytes32 structHash = keccak256(abi.encode(USER_PASS_TYPEHASH, licensee));
+    bytes32 digest = keccak256(abi.encodePacked("\x19\x01", domainSeparator, structHash));
+    address signatory = ecrecover(digest, v, r, s);
+    require(signatory == licensee, "ParksPassRegistry::checkPassHolder: invalid signature");
+    require(supplyEthToCompound() == true, "ParksPassRegistry::checkPassHolder: failed to open defi position on Compound");
+    if (isLicensed(msg.sender) == true) {
+        emit EntryAllowed("Entry allowed. Welcome to the park!");
+    } else {
+        emit EntryDenied("Entry denied. No pass found!");
+    }
+}
+
+/**
+* @notice check if msg.sender has a valid pass token 
+* @param _parkGoer address 
+*/
+function isLicensed(address _parkGoer) private returns (bool) {
+    if (_getBalanceOf(_parkGoer) > 0) {
+        return true;
+    }
+}
+
+/**
+* @notice get balanceOf from parks pass token contract for a given address 
+* @param _parkGoer address 
+* @return number of tokens provided address has 
+* @dev this needs to be strenghtened - 1) check token registry for token expiration 2)?
+*/
+function _getBalanceOf(address _parkGoer) private returns (uint256){  
+    ParksPassToken PPT = ParksPassToken(parksPassToken);
+    uint256 balance = PPT.balanceOf(_parkGoer);
+    return balance;         
+} 
+
 
 /**
 * @notice execute call gaming token license contract to issue NFT  

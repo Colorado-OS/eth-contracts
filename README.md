@@ -1,7 +1,9 @@
 # Colorado OS - ETHDenver 2021 - ColoradoJAM 
 
 ### What is Colorado OS? 
-Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure in Colorado. Initially we introduce [Grasshopper Digital Signature Exchange](https://github.com/Colorado-OS/Grasshopper) as a means of connecting self sovereign IDs into Web3 and Colorado OS. 
+Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure in Colorado. 
+
+Demo site can be found here [colorado-os.github.io](https://colorado-os.github.io) and a more high level project write up can be found [here](./docs/TODO.pdf). 
 
 ---
 ### 🌈  ETHDenver ColoradoJam 2021  🌈
@@ -17,7 +19,7 @@ Colorado OS was built to demonstrate how Web3 could be used to establish a digit
 ### 🌎 UseCase #1 - Web3 State Parks Pass w/Defi charge
 First Colorado OS issues a Web3 digital parks pass to a self sovereign identity. The digital parks pass can be associated with a person, group, family, or something else like an automobile. 
 
-When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/), and/or issue a zkProof* to the contract registry with their CO digital parks pass.  
+When a user visits the park, they can mint & write record of the proof to a self sovereign data store like [Ceramic & IDX](https://blog.ceramic.network/building-with-decentralized-identity-on-idx-and-ceramic/),* and/or issue a zkProof* to the contract registry with their CO digital parks pass.  
 
 [More info can be found on the PARKS-PASS-README here](./docs/PARKS-PASS-README.md). 
 
@@ -56,10 +58,9 @@ New FINCEN regulations require verification of IDs for new business creation. He
 **[Currently in development](./contracts/BusinessLicenseRegistry.sol)** 
 
 ### Web3 Outdoor Licensing
-Hunting, fishing, other. We're thinking about  
+Hunting, fishing, other. 
 
 ### Web3 Professional Licensing
-
 
 ### Web3 State Tax System 
 
@@ -74,7 +75,7 @@ This is a proof of concept and not on mainnet. There are security and privacy ch
 
 The CoinFlip game has been left without a coin withdraw function intentionally. Other features have been left out as well to keep it simple. We _could_ use ChainLink or an other oracle to generate a seed of entropy and fork the CoinFlip contract to generate provably fair tournament trees. We believe there are other possibilities in this area as well that go beyond non-profit public games of chance and into the private gaming realm but they have not been addressed for this POC.      
 
-*need help integrating & implementing zero knowledge proofs into the registries and/or self sovereign data stores 
+*Didn't have time to get Ceramic added for ETHDEnver POC :( and will need some help integrating & implementing zero knowledge proofs into the registries and/or self sovereign data stores. 
 
 ---
 
