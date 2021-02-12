@@ -3,7 +3,7 @@
 ### Colorado OS - DeFi-Charged Backbone for Licensing
 Colorado OS was built to demonstrate how Web3 could be used to establish a digital backbone for a more usable, efficient, and secure public infrastructure in Colorado. 
 
-Demo site can be found here [colorado-os.github.io](https://colorado-os.github.io) and a more high level project write up can be found [here](./docs/TODO.pdf). 
+Demo site can be found here [colorado-os.github.io](https://colorado-os.github.io) and a high level (less tech) project write up can be found [here](./docs/COLORADO_OS_PDF_READMEv2.pdf). 
 
 ---
 ### 🌈  ETHDenver ColoradoJam 2021  🌈
